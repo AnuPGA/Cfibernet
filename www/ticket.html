@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CFIBER</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/framework.css">
+  <link rel="stylesheet" type="text/css" href="css/washington.css">
+  <script src="js/webfont.js"></script>
+  <script>
+    WebFont.load({
+      google: {
+        families: ["Montserrat:400,700"]
+      }
+    });
+  </script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="images/logoStandford32.ico">
+  <link rel="apple-touch-icon" href="images/logoStandford32.ico">
+  <link href="css/ionicons.min.css" rel="stylesheet" type="text/css" />  
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
+  <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
+</head>
+<style>
+  .content {
+   top: 0;
+    left: 21%;
+    margin: 26% 31% 1% 21%;
+    margin: 0;
+    /* overflow: auto; */
+    overflow-x: visible;
+    overflow-y: hidden;
+    height: 415px;
+    /* border: 1px solid #3F4933; */
+}
+
+#slidingDivKeynotePresentations {
+	margin-top: -95px;
+    /* display: none; */
+    //height: 600px;
+    /* width: 600px; TOOK OUT JUST FOR FIDDLE*/
+   width:345px;
+    /* border: 1px solid #3F4933; MOVED TO CONTAINING DIV */
+    /* position: fixed; REPLACED WITH: */
+    position: relative;
+    top: 100px; 
+    //left: 290px; /*Set left value to WidthOfFrameDiv*/
+    padding: 12px;
+    /* overflow-x: hidden; *//* horizontal */
+    /* overflow-y: auto; */  /* vertical */
+ }
+
+</style>
+<body>
+  <section class="w-section mobile-wrapper">
+
+    <div class="page-content" id="main-stack">
+      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-no-scroll="1" data-easing="ease-out-quint">
+        <div class="w-container">
+          <nav class="w-nav-menu nav-menu" role="navigation">
+            <div class="nav-menu-header">
+              <div class="logo">Cfibernet</div>
+              <div class="slogan">All you need is here.</div>
+            </div>
+            <a class="w-clearfix w-inline-block nav-menu-link" href id="index" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-home-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Splash Screen</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" id="logout" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-download-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Logout</div>
+            </a>
+          
+            <a class="w-clearfix w-inline-block nav-menu-link" href id="about-us" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-person-outline"></div>
+              </div>
+              <div class="nav-menu-titles">About</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href id="map" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-location-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Map</div>
+            </a>
+            <a class="w-clearfix w-inline-block nav-menu-link" href id="ticket" data-load="1">
+              <div class="icon-list-menu">
+                <div class="icon ion-ios-box-outline"></div>
+              </div>
+              <div class="nav-menu-titles">Tickets</div>
+            </a>
+           
+            <div class="separator-bottom"></div>
+            <div class="separator-bottom"></div>
+            <div class="separator-bottom"></div>
+          </nav>
+          <div class="wrapper-mask" data-ix="menu-mask"></div>
+          <div class="navbar-title">Tickets</div>
+          <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+            <div class="navbar-button-icon home-icon">
+              <div class="bar-home-icon"></div>
+              <div class="bar-home-icon"></div>
+              <div class="bar-home-icon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="news-container item-new">
+          <div>
+        
+            <div class="grey-header">
+              <h2 class="grey-heading-title">Columns</h2>
+            </div>
+           
+			
+          </div>
+		  <div id="slidingDivKeynotePresentations"  >
+		  <div class="content" >
+		  <table class="table table-bordered paginated  ">
+			  			
+
+    <thead style="background: #f2f2f2;">
+      <tr class="row">
+        <th class="col-xs-1">Customer</th>
+        <th class="col-xs-1">Ticket Query</th>
+        <th class="col-xs-1">Technical person</th>
+        <th class="col-xs-1">Status</th>
+        <th class="col-xs-1">Sign</th>
+      </tr>
+    </thead>
+	
+    <tbody id="test">
+	
+     
+	
+    </tbody>
+	
+  </table>
+  <ul class="pagination" id="myPager"></ul>
+  </div>
+  </div>
+		   
+        </div>
+      </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+      <div class="loading-icon">
+        <div class="navbar-button-icon icon ion-load-d"></div>
+      </div>
+    </div>
+    <div class="shadow-layer"></div>
+  </section>
+  
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/framework.js"></script>
+  <script type="text/javascript" src="js/jquery.session.js"></script>
+  <script>
+ $(document).ready(function () {
+
+var full_url = document.URL; 
+var url_array = full_url.split('='); 
+var last_segment = url_array[url_array.length-1];  
+//alert(last_segment);
+
+
+
+
+ 
+	$.session.set("username", last_segment);
+   var sesionName = $.session.get('username');
+  
+ 
+ 
+ 
+ if((sesionName)!=null){
+ 
+   var sesionName = $.session.get('username');
+
+	var formURL = 'http://techsupport.cfnet.in/mobix/mobixtickets/';
+ // alert();
+		$.ajax({ 
+					
+					type:'GET',
+					url:formURL,					
+					data: 'username='+sesionName,
+					crossDomain: true,
+					cache: false,
+					contentType: false,
+					processData: false,
+					async:false,
+					success:function(response){
+					//alert(response);
+					//console.log(response);
+					var newArr = JSON.parse(response);						
+					$.each(newArr, function(i, item) {
+														
+						$("#test").append(' <tr class="row"><td class="col-xs-1">'+newArr[i].USERNAME+'</td><td class="col-xs-1">'+newArr[i].REQUEST+'</td><td class="col-xs-1">'+newArr[i].name+'</td><td class="col-xs-1">'+newArr[i].STATUS+'</td><td class="col-xs-1"><a href="sign.html?username='+sesionName+'&id='+newArr[i].ID+'" id="update" rowval="'+newArr[i].ID+'" >Update</a></td></tr>');				
+						
+					});
+
+				}
+		});
+		
+		 $("#update").on('click',function(){
+		var vals=$('#update').attr('rowval');
+		$("#ticketid").val(vals);
+
+
+		});
+
+		
+		$.fn.pageMe = function(opts){
+    var $this = this,
+        defaults = {
+            perPage: 7,
+            showPrevNext: false,
+            numbersPerPage: 5,
+            hidePageNumbers: false
+        },
+        settings = $.extend(defaults, opts);
+    
+    var listElement = $this;
+    var perPage = settings.perPage; 
+    var children = listElement.children();
+    var pager = $('.pagination');
+    
+    if (typeof settings.childSelector!="undefined") {
+        children = listElement.find(settings.childSelector);
+    }
+    
+    if (typeof settings.pagerSelector!="undefined") {
+        pager = $(settings.pagerSelector);
+    }
+    
+    var numItems = children.size();
+    var numPages = Math.ceil(numItems/perPage);
+
+    pager.data("curr",0);
+    
+    if (settings.showPrevNext){
+        $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
+    }
+    
+    var curr = 0;
+    while(numPages > curr && (settings.hidePageNumbers==false)){
+        $('<li><a href="#" class="page_link">'+(curr+1)+'</a></li>').appendTo(pager);
+        curr++;
+    }
+  
+    if (settings.numbersPerPage>1) {
+       $('.page_link').hide();
+       $('.page_link').slice(pager.data("curr"), settings.numbersPerPage).show();
+    }
+    
+    if (settings.showPrevNext){
+        $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
+    }
+    
+    pager.find('.page_link:first').addClass('active');
+    pager.find('.prev_link').hide();
+    if (numPages<=1) {
+        pager.find('.next_link').hide();
+    }
+  	pager.children().eq(1).addClass("active");
+    
+    children.hide();
+    children.slice(0, perPage).show();
+    
+    pager.find('li .page_link').click(function(){
+        var clickedPage = $(this).html().valueOf()-1;
+        goTo(clickedPage,perPage);
+        return false;
+    });
+    pager.find('li .prev_link').click(function(){
+        previous();
+        return false;
+    });
+    pager.find('li .next_link').click(function(){
+        next();
+        return false;
+    });
+    
+    function previous(){
+        var goToPage = parseInt(pager.data("curr")) - 1;
+        goTo(goToPage);
+    }
+     
+    function next(){
+        goToPage = parseInt(pager.data("curr")) + 1;
+        goTo(goToPage);
+    }
+    
+    function goTo(page){
+        var startAt = page * perPage,
+            endOn = startAt + perPage;
+        
+        children.css('display','none').slice(startAt, endOn).show();
+        
+        if (page>=1) {
+            pager.find('.prev_link').show();
+        }
+        else {
+            pager.find('.prev_link').hide();
+        }
+        
+        if (page<(numPages-1)) {
+            pager.find('.next_link').show();
+        }
+        else {
+            pager.find('.next_link').hide();
+        }
+        
+        pager.data("curr",page);
+       
+        if (settings.numbersPerPage>1) {
+       		$('.page_link').hide();
+       		$('.page_link').slice(page, settings.numbersPerPage+page).show();
+    	}
+      
+      	pager.children().removeClass("active");
+        pager.children().eq(page+1).addClass("active");
+    
+    }
+};
+
+$(document).ready(function(){
+    
+  $('#test').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:4});
+    
+});
+			
+	}
+else{
+		
+			window.location.href ='index.html';		
+	
+	}
+ 
+  $("#logout").click(function(){ 
+ $.session.remove('username');
+ window.location='login.html';
+});
+  
+ 
+ 
+ 
+  // alert(username);
+  
+  
+  
+  
+  });
+   
+  </script>
+  <script type="text/javascript">
+$(document).ready(function() {
+
+var full_url = document.URL; 
+var url_array = full_url.split('='); 
+var last_segment = url_array[url_array.length-1]; 
+//alert(last_segment);
+ 
+
+ $.session.set('username', last_segment);
+	var sesionName = $.session.get('username');
+ 
+ 
+ $("#ticket").click(function(){ 
+ 
+	window.location.href ='ticket.html?username=' + sesionName;
+	
+ });
+ 
+  $("#index").click(function(){ 
+ 
+	window.location.href ='index.html';
+	
+ });
+ 
+ 
+ $("#map").click(function(){ 
+ 
+	window.location.href ='maps.html?username=' + sesionName;
+ });
+ 
+ 
+ $("#about-us").click(function(){ 
+ 
+	window.location.href ='about-us.html?username=' + sesionName;
+ });
+ 
+
+ 	
+	$("#logout").click(function(){
+	
+	var remove=$.session.remove(sesionName);
+	alert(remove);
+	window.location='login.html';
+	
+	
+});
+});
+
+
+</script>
+  <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
+</body>
+</html>
