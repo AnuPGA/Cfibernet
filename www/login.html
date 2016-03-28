@@ -110,12 +110,11 @@ rules: {
 											async:false,
 											success:function(response){
 												
-											//localStorage.lastname="Smith";
-											//document.getElementById("result").innerHTML="Last name: "+ localStorage.lastname;
 											$.session.set("username", $("#username").val());
 											var a =  $.session.get('username');
-											//alert(a);
-											//	$('div#session').html('Welcome '+a);
+												
+											localStorage.setItem('UserName', a);
+										 
 											$("#submit-form")[0].reset();			
 											if(response==1){											
 												$(".w-form-done").fadeIn(1000);									
@@ -139,15 +138,10 @@ rules: {
 									
 	});
 	
-
-	
-	
-	
-	
-	
 	
 $("#logout").click(function(){ 
- $.session.remove('username');
+ //$.session.remove('username');
+ localStorage.removeItem('UserName');
  window.location='login.html';
 });
   

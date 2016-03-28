@@ -109,35 +109,12 @@
                 <br>Email:  cfnet@cherritech.com 
                 <br>Mobile: +91 94565 56777
                 </p>
-              <div class="separator-button"></div>
-              <h2 class="title-new"></h2>
-              <div class="separator-fields"></div>
-              <p class="description-new"></p>
-              <div class="separator-fields"></div>
-              <!--div class="w-widget w-widget-map square-map" data-widget-latlng="51.752021,-1.257726" data-widget-style="roadmap" data-widget-zoom="17"></div-->
-              <div class="separator-fields"></div>
-              <div class="separator-fields"></div>
-              <p class="description-new">
-                <br>
-                <br></p>
+          
               <div>
                 <div class="separator-button"></div>
                 <h2 class="title-new"></h2>
                 <div class="separator-fields"></div>
-                <p class="description-new"></p>
-                <div class="separator-fields"></div>
-                <!--div class="w-widget w-widget-map square-map" data-widget-latlng="51.752021,-1.257726" data-widget-style="satellite" data-widget-zoom="18" data-widget-tooltip="Headquarters" data-disable-touch="1"></div-->
-                <div class="separator-fields"></div>
-                <div class="separator-fields"></div>
-                <p class="description-new">
-                  
-                  <br></p>
-              </div>
-              <div>
-                <div class="separator-button"></div>
-                <h2 class="title-new"></h2>
-                <div class="separator-fields"></div>
-                <p class="description-new">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
+                <p class="description-new" style="color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare.</p>
                
                 <!--div class="w-widget w-widget-map square-map" data-widget-latlng="50.718412,-3.533899" data-widget-style="satellite" data-widget-zoom="18" data-widget-tooltip="Offices"></div-->
               
@@ -161,9 +138,11 @@
   <!--[if lte IE 9]><script src="js/placeholders.min.js"></script><![endif]-->
   
    <script>
- $(document).ready(function () {	 
+ $(document).ready(function () {
+
+ var userdata = localStorage.getItem('UserName'); 
 	
- var full_url = document.URL; 
+var full_url = document.URL; 
 var url_array = full_url.split('='); 
 var last_segment = url_array[url_array.length-1]; 
 //alert(last_segment);
@@ -201,8 +180,10 @@ var last_segment = url_array[url_array.length-1];
 
 	
 	$("#logout").click(function(){ 
-	$.session.remove('username');
-	window.location='login.html';
+	
+	localStorage.removeItem('UserName');
+	//$.session.remove('username');
+	window.location='index.html';
 });
   
  }); 

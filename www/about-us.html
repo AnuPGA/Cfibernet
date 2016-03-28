@@ -34,7 +34,7 @@
               <div class="logo">Cfibernet</div>
               <div class="slogan">All you need is here.</div>
             </div>
-            <a class="w-clearfix w-inline-block nav-menu-link"  id="index" data-load="1">
+            <a class="w-clearfix w-inline-block nav-menu-link homepage"  id="index" data-load="1">
               <div class="icon-list-menu">
                 <div class="icon ion-ios-home-outline"></div>
               </div>
@@ -132,6 +132,9 @@
  $(document).ready(function () {
  
  
+ var userdata = localStorage.getItem('UserName');
+// alert(data);
+ 
  var full_url = document.URL; 
 var url_array = full_url.split('='); 
 var last_segment = url_array[url_array.length-1]; 
@@ -167,11 +170,11 @@ var last_segment = url_array[url_array.length-1];
  });
 
  	
-	$("#logout").click(function(){
-	
-	var remove=$.session.remove('username');
+	$("#logout").click(function(){	
+	//var remove=$.session.remove('username');
 	//alert(remove);
-	window.location='login.html';
+	localStorage.removeItem('UserName');
+	window.location='index.html';
 	
 	
 });

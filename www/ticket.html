@@ -25,15 +25,25 @@
   <!--script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script-->
 </head>
 <style>
+
+@media only screen and (min-width:426px) and (max-width: 768px)
+{
+
+.content {width: initial !important;}
+}
+
+
   .content {
    top: 0;
+     width:322px;
     left: 21%;
     margin: 26% 31% 1% 21%;
     margin: 0;
     /* overflow: auto; */
     overflow-x: visible;
     overflow-y: hidden;
-    height: 415px;
+  //  height: 415px;
+	height: initial;
     /* border: 1px solid #3F4933; */
 }
 
@@ -42,7 +52,7 @@
     /* display: none; */
     //height: 600px;
     /* width: 600px; TOOK OUT JUST FOR FIDDLE*/
-   width:345px;
+
     /* border: 1px solid #3F4933; MOVED TO CONTAINING DIV */
     /* position: fixed; REPLACED WITH: */
     position: relative;
@@ -58,14 +68,14 @@
   <section class="w-section mobile-wrapper">
 
     <div class="page-content" id="main-stack">
-      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-no-scroll="1" data-easing="ease-out-quint">
+      <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1" data-no-scroll="1" data-easing="ease-out-quint" style="position: fixed !important; ">
         <div class="w-container">
           <nav class="w-nav-menu nav-menu" role="navigation">
             <div class="nav-menu-header">
               <div class="logo">Cfibernet</div>
               <div class="slogan">All you need is here.</div>
             </div>
-            <a class="w-clearfix w-inline-block nav-menu-link" href id="index" data-load="1">
+            <a class="w-clearfix w-inline-block nav-menu-link homepage"  href id="index" data-load="1">
               <div class="icon-list-menu">
                 <div class="icon ion-ios-home-outline"></div>
               </div>
@@ -112,16 +122,15 @@
           </div>
         </div>
       </div>
-      <div class="body">
+      <div class="body" style="">
         <div class="news-container item-new">
-          <div>
-        
+          <div>        
             <div class="grey-header">
               <h2 class="grey-heading-title">Columns</h2>
             </div>
            
-			
-          </div>
+		   
+		   
 		  <div id="slidingDivKeynotePresentations"  >
 		  <div class="content" >
 		  <table class="table table-bordered paginated  ">
@@ -129,11 +138,11 @@
 
     <thead style="background: #f2f2f2;">
       <tr class="row">
-        <th class="col-xs-1">Customer</th>
-        <th class="col-xs-1">Ticket Query</th>
-        <th class="col-xs-1">Technical person</th>
-        <th class="col-xs-1">Status</th>
-        <th class="col-xs-1">Sign</th>
+        <th>Customer</th>
+        <th>Ticket Query</th>
+        <th>Technical person</th>
+        <th>Status</th>
+        <th>Sign</th>
       </tr>
     </thead>
 	
@@ -147,7 +156,20 @@
   <ul class="pagination" id="myPager"></ul>
   </div>
   </div>
-		   
+  
+   <div class="text-new no-borders">
+              <div>
+                <div class="separator-fields"></div>
+                <h2 class="title-new"></h2>
+              
+                <p class="description-new" style="color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendd idsse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolistique. Duis cursus, mi quis viverra ornare, eros </p>
+                <div class="separator-button"></div>
+              </div>
+             
+            </div>
+  
+  
+		</div>   
         </div>
       </div>
     </div>
@@ -164,48 +186,42 @@
   <script type="text/javascript" src="js/jquery.session.js"></script>
   <script>
  $(document).ready(function () {
+ 
+ 
+  var userdata = localStorage.getItem('UserName');
+
 
 var full_url = document.URL; 
 var url_array = full_url.split('='); 
 var last_segment = url_array[url_array.length-1];  
-//alert(last_segment);
 
-
-
-
- 
 	$.session.set("username", last_segment);
    var sesionName = $.session.get('username');
   
  
  
  
- if((sesionName)!=null){
- 
-   var sesionName = $.session.get('username');
+ if((userdata)!=null){
 
 	var formURL = 'http://techsupport.cfnet.in/mobix/mobixtickets/';
- // alert();
+ 
 		$.ajax({ 
 					
 					type:'GET',
 					url:formURL,					
-					data: 'username='+sesionName,
+					data: 'username='+userdata,
 					crossDomain: true,
 					cache: false,
 					contentType: false,
 					processData: false,
 					async:false,
-					success:function(response){
-					//alert(response);
-					//console.log(response);
+					success:function(response){					
 					var newArr = JSON.parse(response);						
 					$.each(newArr, function(i, item) {
 														
-						$("#test").append(' <tr class="row"><td class="col-xs-1">'+newArr[i].USERNAME+'</td><td class="col-xs-1">'+newArr[i].REQUEST+'</td><td class="col-xs-1">'+newArr[i].name+'</td><td class="col-xs-1">'+newArr[i].STATUS+'</td><td class="col-xs-1"><a href="sign.html?username='+sesionName+'&id='+newArr[i].ID+'" id="update" rowval="'+newArr[i].ID+'" >Update</a></td></tr>');				
+						$("#test").append(' <tr class="row"><td>'+newArr[i].USERNAME+'</td><td>'+newArr[i].REQUEST+'</td><td>'+newArr[i].name+'</td><td>'+newArr[i].STATUS+'</td><td><a href="sign.html?username='+userdata+'&id='+newArr[i].ID+'" id="update" rowval="'+newArr[i].ID+'" >Update</a></td></tr>');				
 						
 					});
-
 				}
 		});
 		
@@ -349,13 +365,7 @@ else{
  window.location='login.html';
 });
   
- 
- 
- 
-  // alert(username);
-  
-  
-  
+
   
   });
    
@@ -366,44 +376,38 @@ $(document).ready(function() {
 var full_url = document.URL; 
 var url_array = full_url.split('='); 
 var last_segment = url_array[url_array.length-1]; 
-//alert(last_segment);
+
  
 
  $.session.set('username', last_segment);
 	var sesionName = $.session.get('username');
  
  
- $("#ticket").click(function(){ 
- 
-	window.location.href ='ticket.html?username=' + sesionName;
-	
+ $("#ticket").click(function(){  
+	window.location.href ='ticket.html?username=' + sesionName;	
  });
  
-  $("#index").click(function(){ 
- 
-	window.location.href ='index.html';
-	
+  $("#index").click(function(){  
+	window.location.href ='index.html';	
  });
  
  
  $("#map").click(function(){ 
- 
 	window.location.href ='maps.html?username=' + sesionName;
  });
  
  
- $("#about-us").click(function(){ 
- 
+ $("#about-us").click(function(){  
 	window.location.href ='about-us.html?username=' + sesionName;
  });
  
 
  	
-	$("#logout").click(function(){
+	$("#logout").click(function(){	
+	//var remove=$.session.remove(sesionName);
 	
-	var remove=$.session.remove(sesionName);
-	alert(remove);
-	window.location='login.html';
+	localStorage.removeItem('UserName');
+	window.location='index.html';
 	
 	
 });
